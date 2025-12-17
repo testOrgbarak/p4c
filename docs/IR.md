@@ -11,6 +11,7 @@ Refer to the full page here: [P4C Intermediate Representation (IR)](https://p4la
 \internal
 -->
 # P4C Intermediate Representation (IR)
+
 <!--!
 \endinternal
 -->
