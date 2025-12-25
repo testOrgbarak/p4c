@@ -6,6 +6,9 @@ permissions:
   issues: write
   pull-requests: write
 
+
+
+
 on:
   push:
     branches:
@@ -15,6 +18,11 @@ on:
 
 jobs:
   build-and-deploy:
+  # Authorization / manual approval gate
+    environment:
+      name: docs-preview-approval
+      url: https://${{ env.DOMAIN }}/${{ github.event.repository.name }}/${{ env.PR_PATH }}/
+      
     runs-on: ubuntu-latest
     env:
       DOXYGEN_VERSION: 1.13.2
