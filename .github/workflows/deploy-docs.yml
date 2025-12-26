@@ -19,9 +19,8 @@ on:
 jobs:
   build-and-deploy:
   # Authorization / manual approval gate
-    environment:
-      name: docs-preview-approval
-      url: https://${{ env.DOMAIN }}/${{ github.event.repository.name }}/${{ env.PR_PATH }}/
+    if: github.event_name != 'pull_request_target' || contains(github.event.pull_request.labels.*.name, 'safe-to-run')
+
       
     runs-on: ubuntu-latest
     env:
